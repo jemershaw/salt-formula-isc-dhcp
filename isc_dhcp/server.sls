@@ -5,6 +5,8 @@ isc_dhcp_packages:
   pkg.installed:
   - pkgs: {{ server.pkgs }}
 
+{%- if server.defaults_config is defined %}
+
 {{ server.defaults_config }}:
   file.managed:
   - makedirs: True
@@ -15,6 +17,8 @@ isc_dhcp_packages:
     - pkg: isc_dhcp_packages
   - watch_in:
     - service: isc_dhcp_service
+
+{%- endif %}
 
 {%- if server.dhcpd_config is defined %}
 

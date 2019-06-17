@@ -41,6 +41,17 @@ Darwin:
   service: org.macports.dhcpd
   config_dir: /opt/local/etc/dhcp
   zone: {}
+SmartOS:
+  pkgs:
+  - isc-dhcpd
+  service: isc-dhcpd
+  logging:
+    facility: local7
+  config_dir: /opt/local/etc/dhcp
+  dhcpd_config: /usr/local/etc/dhcp/dhcpd.conf
+  hosts_config: /usr/local/etc/dhcp/dhcpd.hosts
+  subnets_config: /usr/local/etc/dhcp/dhcpd.subnets
+  zone: {}
 {%- endload %}
 
 {%- set server = salt['grains.filter_by'](raw_server, merge=salt['pillar.get']('isc_dhcp:server')) %}
