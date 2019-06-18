@@ -1,6 +1,7 @@
 {%- from "isc_dhcp/map.jinja" import server with context %}
 {%- if server.enabled %}
 
+{%- do salt.log.error(server.pkgs) %}
 isc_dhcp_packages:
   pkg.installed:
   - pkgs: {{ server.pkgs }}
