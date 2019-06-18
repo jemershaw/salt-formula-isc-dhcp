@@ -11,6 +11,20 @@ subnet {{ subnet.network }} netmask {{ subnet.netmask }} {
   {%- if subnet.gateway is defined %}
   option routers {{ subnet.gateway }};
   {%- endif %}
+  {%- if subnet.domain_name_servers is defined %}
+  {%- for domain_server in subnet.domain_name_servers.iteritems() %}
+  option domain-name-server {{ domain_server }};
+  {%- endfor %}
+  {%- endif %}
+  {%- if subnet.domain_name is defined %}
+  option domain-name "{{ subnet.domain_name }}";
+  {%- endif %}
+  {%- if subnet.ddns_domainname is defined %}
+  option ddns-domainname "{{ subnet.ddns_domainname }}";
+  {%- endif %}
+  {%- if subnet.ddns_rev_domainname is defined %}
+  option ddns-rev-domainname "{{ subnet.ddns_rev_domainname }}";
+  {%- endif %}
   {%- if subnet.pxeserver is defined %}
   next-server {{ subnet.pxeserver }};
   {%- endif %}
