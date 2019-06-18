@@ -12,7 +12,7 @@ subnet {{ subnet.network }} netmask {{ subnet.netmask }} {
   option routers {{ subnet.gateway }};
   {%- endif %}
   {%- if subnet.domain_name_servers is defined %}
-  {%- for domain_server in subnet.domain_name_servers.items() %}
+  {%- for domain_server in subnet.domain_name_servers %}
   option domain-name-server {{ domain_server }};
   {%- endfor %}
   {%- endif %}
