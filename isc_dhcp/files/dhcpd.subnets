@@ -13,7 +13,7 @@ subnet {{ subnet.network }} netmask {{ subnet.netmask }} {
   {%- endif %}
   {%- if subnet.domain_name_servers is defined %}
   {%- for domain_server in subnet.domain_name_servers %}
-  option domain-name-server {{ domain_server }};
+  option domain-name-servers {{ domain_server }};
   {%- endfor %}
   {%- endif %}
   {%- if subnet.domain_name is defined %}
