@@ -3,7 +3,7 @@
 
 isc_dhcp_packages:
   pkg.installed:
-  - pkgs: {{ server.pkgs }}
+  - name: {{ server.pkg.name }}
 
 {%- if server.defaults_config is defined %}
 

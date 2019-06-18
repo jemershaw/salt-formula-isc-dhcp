@@ -1,0 +1,53 @@
+Debian:
+  pkg:
+    name: isc-dhcp-server
+  service: isc-dhcp-server
+  logging:
+    facility: local7
+  defaults_config: /etc/default/isc-dhcp-server
+  config_dir: /etc/dhcp
+  dhcpd_config: /etc/dhcp/dhcpd.conf
+  hosts_config: /etc/dhcp/dhcpd.hosts
+  subnets_config: /etc/dhcp/dhcpd.subnets
+  zone: {}
+FreeBSD:
+  pkg:
+    name: isc-dhcp42-server
+  service: isc-dhcpd
+  logging:
+    facility: local7
+  defaults_config: /etc/rc.conf.d/dhcpd
+  config_dir: /usr/local/etc
+  dhcpd_config: /usr/local/etc/dhcpd.conf
+  hosts_config: /usr/local/etc/dhcpd.hosts
+  subnets_config: /usr/local/etc/dhcpd.subnets
+  zone: {}
+RedHat:
+  pkg:
+    name: dhcp
+  service: dhcpd
+  logging:
+    facility: local7
+  defaults_config: /etc/sysconfig/dhcpd
+  config_dir: /etc/dhcp
+  dhcpd_config: /etc/dhcp/dhcpd.conf
+  hosts_config: /etc/dhcp/dhcpd.hosts
+  subnets_config: /etc/dhcp/dhcpd.subnets
+  zone: {}
+Darwin:
+  pkg:
+    name: dhcp
+  service: org.macports.dhcpd
+  config_dir: /opt/local/etc/dhcp
+  zone: {}
+Solaris:
+  pkg:
+    name: isc-dhcpd
+  service: isc-dhcpd
+  logging:
+    facility: local7
+  config_dir: /opt/local/etc/dhcp
+  dhcpd_config: /opt/local/etc/dhcp/dhcpd.conf
+  hosts_config: /opt/local/etc/dhcp/dhcpd.hosts
+  subnets_config: /opt/local/etc/dhcp/dhcpd.subnets
+  zone: {}
