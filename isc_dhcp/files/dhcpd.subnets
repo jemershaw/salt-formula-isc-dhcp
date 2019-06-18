@@ -29,10 +29,10 @@ subnet {{ subnet.network }} netmask {{ subnet.netmask }} {
   next-server {{ subnet.pxeserver }};
   {%- endif %}
   {%- if subnet.bootfile_name is defined %}
-  option bootfile-name {{ subnet.bootfile_name }};
+  option bootfile-name "{{ subnet.bootfile_name }}";
   {%- endif %}
   {%- if subnet.filename is defined %}
-  filename {{ subnet.filename }};
+  filename "{{ subnet.filename }}";
   {%- endif %}
 {%- if subnet.unknown_clients is defined %}
   {{ subnet.unknown_clients }} unknown-clients;
