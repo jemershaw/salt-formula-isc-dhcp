@@ -20,10 +20,10 @@ subnet {{ subnet.network }} netmask {{ subnet.netmask }} {
   option domain-name "{{ subnet.domain_name }}";
   {%- endif %}
   {%- if subnet.ddns_domainname is defined %}
-  option ddns-domainname "{{ subnet.ddns_domainname }}";
+  ddns-domainname "{{ subnet.ddns_domainname }}";
   {%- endif %}
   {%- if subnet.ddns_rev_domainname is defined %}
-  option ddns-rev-domainname "{{ subnet.ddns_rev_domainname }}";
+  ddns-rev-domainname "{{ subnet.ddns_rev_domainname }}";
   {%- endif %}
   {%- if subnet.pxeserver is defined %}
   next-server {{ subnet.pxeserver }};
