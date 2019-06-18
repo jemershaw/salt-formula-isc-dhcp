@@ -4,7 +4,7 @@
 {%- do salt.log.error(server.pkgs) %}
 isc_dhcp_packages:
   pkg.installed:
-  - pkgs: {{ server.pkgs }}
+  - pkgs: {{ server.pkgs|tojson }}
 
 {%- if server.defaults_config is defined %}
 
